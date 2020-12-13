@@ -33,4 +33,8 @@ public class BuyerService {
     public void deleteBuyer(UUID id) {
         buyerRepository.deleteById(id);
     }
+
+    public Optional<Buyer> getBuyerByUsername(String userName) {
+        return buyerRepository.findByUserName(userName);
+    }
 }

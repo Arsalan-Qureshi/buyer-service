@@ -13,28 +13,38 @@ public class Buyer {
     @Field
     private String name;
     @Field
+    private String userName;
+    @Field
     private String address;
     @Field
     private String contactInformation;
     @Field
     private String email;
     @Field
+    private String password;
+    @Field
     private String country;
     @Field
     private String creditCard;
+    @Field
+    private Boolean isActive;
 
     public Buyer() {
 
     }
 
-    public Buyer(UUID id, String name, String address, String contactInformation, String email, String country, String creditCard) {
+    public Buyer(UUID id, String name, String userName, String address, String contactInformation, String email,
+                 String password, String country, String creditCard, Boolean isActive) {
         this.id = id;
         this.name = name;
+        this.userName = userName;
         this.address = address;
         this.contactInformation = contactInformation;
         this.email = email;
+        this.password = password;
         this.country = country;
         this.creditCard = creditCard;
+        this.isActive = isActive;
     }
 
     public UUID getId() {
@@ -51,6 +61,14 @@ public class Buyer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getAddress() {
@@ -77,6 +95,14 @@ public class Buyer {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getCountry() {
         return country;
     }
@@ -91,5 +117,13 @@ public class Buyer {
 
     public void setCreditCard(String creditCard) {
         this.creditCard = creditCard;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 }

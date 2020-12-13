@@ -21,6 +21,11 @@ public class BuyerController {
         return buyerService.getBuyer(UUID.fromString(id));
     }
 
+    @RequestMapping("/buyers/search/{userName}")
+    public Optional<Buyer> getBuyerByUsername(@PathVariable("userName") String userName) {
+        return buyerService.getBuyerByUsername(userName);
+    }
+
     @PostMapping("/buyers")
     public void addBuyer(@RequestBody Buyer buyer) {
         buyerService.addBuyer(buyer);
