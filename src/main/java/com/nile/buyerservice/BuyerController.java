@@ -12,18 +12,18 @@ public class BuyerController {
     private BuyerService buyerService;
 
     @RequestMapping("/buyers")
-    public Iterable<Buyer> getAllBuyers() {
-        return buyerService.getAllBuyers();
+    public Iterable<Buyer> getAllBuyers(@RequestHeader("Authorization") String token) {
+        return buyerService.getAllBuyers(token);
     }
 
     @RequestMapping("/buyers/{id}")
-    public Optional<Buyer> getBuyer(@PathVariable("id") String id) {
-        return buyerService.getBuyer(UUID.fromString(id));
+    public Optional<Buyer> getBuyer(@RequestHeader("Authorization") String token, @PathVariable("id") String id) {
+        return buyerService.getBuyer(token, UUID.fromString(id));
     }
 
     @RequestMapping("/buyers/search/{userName}")
-    public Optional<Buyer> getBuyerByUsername(@PathVariable("userName") String userName) {
-        return buyerService.getBuyerByUsername(userName);
+    public Optional<Buyer> getBuyerByUsername(@RequestHeader("Authorization") String token, @PathVariable("userName") String userName) {
+        return buyerService.getBuyerByUsername(token, userName);
     }
 
     @PostMapping("/buyers")
@@ -32,12 +32,12 @@ public class BuyerController {
     }
 
     @PutMapping("/buyers")
-    public void updateBuyer(@RequestBody Buyer buyer) {
-        buyerService.updateBuyer(buyer);
+    public void updateBuyer(@RequestHeader("Authorization") String token, @RequestBody Buyer buyer) {
+        buyerService.updateBuyer(token, buyer);
     }
 
     @DeleteMapping("/buyers/{id}")
-    public void deleteBuyer(@PathVariable("id") String id) {
-        buyerService.deleteBuyer(UUID.fromString(id));
+    public void deleteBuyer(@RequestHeader("Authorization") String token, @PathVariable("id") String id) {
+        buyerService.deleteBuyer(token, UUID.fromString(id));
     }
 }

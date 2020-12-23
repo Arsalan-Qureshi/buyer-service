@@ -1,4 +1,4 @@
-package com.nile.buyerservice;
+package com.nile.buyerservice.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.couchbase.config.AbstractCouchbaseConfiguration;
